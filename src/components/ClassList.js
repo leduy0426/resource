@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Row, Col, Card, Form, Button, Badge } from "react-bootstrap";
 import { fetchClassesAPI } from "../services/classService";
@@ -6,6 +6,7 @@ import Header from "./Header";
 
 function ClassList() {
   const navigate = useNavigate();
+  const searchInputRef = useRef(null);
   const [courses, setCourses] = useState([]);
   const [selectedSemester, setSelectedSemester] = useState("SUMMER2026");
   const [searchTerm, setSearchTerm] = useState("");
@@ -30,7 +31,10 @@ function ClassList() {
   }, []);
 
   const handleRefresh = () => {
+    setSelectedSemester("SUMMER2026");
+    setSearchTerm("");
     loadData();
+    searchInputRef.current?.focus();
   };
 
   // Lọc theo 
@@ -99,6 +103,7 @@ function ClassList() {
 
       <div className="mb-4">
         <Form.Control
+          ref={searchInputRef}
           type="text"
           placeholder="Search courses"
           value={searchTerm}

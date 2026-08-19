@@ -62,7 +62,7 @@ function DetailClass() {
         >
           My Courses
         </Link>
-        <span className="mx-1">&gt;</span>
+        &gt;
         <span>
           {courseDetail.nameEn}_{courseDetail.nameVi}
         </span>
