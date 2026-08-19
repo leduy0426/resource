@@ -55,25 +55,17 @@ function DetailClass() {
       <Header />
 
 
-      <div className="mt-3 mb-2">
-        <nav aria-label="breadcrumb">
-          <ol className="breadcrumb mb-1 small">
-            <li className="breadcrumb-item">
-              <Link
-                to="/classes"
-                className="text-decoration-none text-muted fw-semibold"
-              >
-                My Courses
-              </Link>
-            </li>
-            <li
-              className="breadcrumb-item active text-muted fw-semibold"
-              aria-current="page"
-            >
-              {courseDetail.nameEn}_{courseDetail.nameVi}
-            </li>
-          </ol>
-        </nav>
+      <div className="mt-3 mb-2 small text-muted fw-semibold">
+        <Link
+          to="/classes"
+          className="text-decoration-none text-muted fw-semibold"
+        >
+          My Courses
+        </Link>
+        <span className="mx-1">&gt;</span>
+        <span>
+          {courseDetail.nameEn}_{courseDetail.nameVi}
+        </span>
       </div>
 
 
